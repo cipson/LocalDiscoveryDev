@@ -41,7 +41,6 @@
 	<source-file src="src/android/com/wdc/plugins/mdnsdiscovery/mdns/MDNSFinderService.java" target-dir="src/com/wdc/plugins/mdnsdiscovery/mdns/"/>
 	<source-file src="src/android/com/wdc/plugins/mdnsdiscovery/WDDeviceFinder.java" target-dir="src/com/wdc/plugins/mdnsdiscovery/"/>
   </platform>
-<!-- 
   <platform name="ios">
     
     <config-file target="config.xml" parent="/widget">
@@ -50,9 +49,9 @@
       </feature>
     </config-file>
 
-    <header-file src="src/ios/BonjourDiscovery.h" target-dir="src"/>
-    <source-file src="src/ios/BonjourDiscovery.m" target-dir="src"/>
+    <header-file src="src/ios/Bridging-Header.h"/>
+    <source-file src="src/ios/BonjourDiscovery.swift"/>
+    <source-file src="src/ios/BonjourPlugin.swift"/>
   </platform>
 
--->
 </plugin>
