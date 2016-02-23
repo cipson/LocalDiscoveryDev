@@ -49,7 +49,6 @@ class BonjourDiscoveryBrowser:NSObject, NSNetServiceBrowserDelegate, NSNetServic
     }
     
     func netServiceDidResolveAddress(sender: NSNetService) {
-        NSLog("NSNetService \(sender.className)")
         if let addresses = sender.addresses
         {
             for address in addresses

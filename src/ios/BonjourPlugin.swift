@@ -15,6 +15,13 @@ import AVFoundation
     var bonjourDeviceArray = [[String: String]]()
     var bonjourDiscoveryResult = [String: [[String: String]]]()
 
+    override func pluginInitialize () {
+        NSLog("BonjourDiscovery plugin Initialize")
+        bonjourDeviceArray = [[String: String]]()
+        bonjourDiscoveryResult = [String: [[String: String]]]()
+    }
+
+    
     func onDeviceFound(deviceName: String, deviceIP: String) {
         var deviceObject = [String: String]()
         deviceObject["name"] = deviceName;
