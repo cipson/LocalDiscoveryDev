@@ -1,0 +1,18 @@
+{
+    "version": "0.1",
+    "name": "com.wdc.bonjourdiscovery",
+    "cordova_name": "BonjourDiscovery",
+    "description": "Bonjour Discovery",
+    "license": "Apache 2.0",
+    "repo": "",
+    "issue": "",
+    "keywords": [
+        "cordova",
+        "device"
+    ],
+    "platforms": [
+        "android",
+    ],
+    "engines": [],
+    "englishdoc": ""
+}

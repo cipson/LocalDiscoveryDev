@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="com.wdc.bonjourdiscovery"
+    version="1.1.1">
+
+  <name>BonjourDiscovery</name>
+
+  <asset src="www/bonjour_discovery.js" target="js/bonjour_discovery.js"/>
+
+  <js-module src="www/bonjour_discovery.js" name="BonjourDiscovery">
+    <clobbers target="BonjourDiscovery" />
+  </js-module>
+
+  <platform name="android">
+
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="BonjourDiscovery">
+        <param name="android-package" value="com.wdc.plugins.mdnsdiscovery.BonjourDiscoveryPlugin"/>
+      </feature>
+    </config-file>
+
+	<source-file src="src/android/com/wdc/plugins/mdnsdiscovery/concurrency/AutoResetEvent.java" target-dir="src/com/wdc/plugins/mdnsdiscovery/concurrency/"/>
+	<source-file src="src/android/com/wdc/plugins/mdnsdiscovery/concurrency/ManualResetEvent.java" target-dir="src/com/wdc/plugins/mdnsdiscovery/concurrency/"/>
+	<source-file src="src/android/com/wdc/plugins/mdnsdiscovery/concurrency/WaitHandle.java" target-dir="src/com/wdc/plugins/mdnsdiscovery/concurrency/"/>
+	<source-file src="src/android/com/wdc/plugins/mdnsdiscovery/BonjourDiscoveryPlugin.java" target-dir="src/com/wdc/plugins/mdnsdiscovery/"/>
+	<source-file src="src/android/com/wdc/plugins/mdnsdiscovery/DeviceFinder.java" target-dir="src/com/wdc/plugins/mdnsdiscovery/"/>
+	<source-file src="src/android/com/wdc/plugins/mdnsdiscovery/DeviceScanner.java" target-dir="src/com/wdc/plugins/mdnsdiscovery/"/>
+	<source-file src="src/android/com/wdc/plugins/mdnsdiscovery/DNSDevice.java" target-dir="src/com/wdc/plugins/mdnsdiscovery/"/>
+	<source-file src="src/android/com/wdc/plugins/mdnsdiscovery/events/EventBase.java" target-dir="src/com/wdc/plugins/mdnsdiscovery/events/"/>
+	<source-file src="src/android/com/wdc/plugins/mdnsdiscovery/events/EventHandler.java" target-dir="src/com/wdc/plugins/mdnsdiscovery/events/"/>
+	<source-file src="src/android/com/wdc/plugins/mdnsdiscovery/events/EventTask.java" target-dir="src/com/wdc/plugins/mdnsdiscovery/events/"/>
+	<source-file src="src/android/com/wdc/plugins/mdnsdiscovery/Logger.java" target-dir="src/com/wdc/plugins/mdnsdiscovery/"/>
+	<source-file src="src/android/com/wdc/plugins/mdnsdiscovery/mdns/ByteReader.java" target-dir="src/com/wdc/plugins/mdnsdiscovery/mdns/"/>
+	<source-file src="src/android/com/wdc/plugins/mdnsdiscovery/mdns/DNSEntry.java" target-dir="src/com/wdc/plugins/mdnsdiscovery/mdns/"/>
+	<source-file src="src/android/com/wdc/plugins/mdnsdiscovery/mdns/DNSMessage.java" target-dir="src/com/wdc/plugins/mdnsdiscovery/mdns/"/>
+	<source-file src="src/android/com/wdc/plugins/mdnsdiscovery/mdns/DNSQuestion.java" target-dir="src/com/wdc/plugins/mdnsdiscovery/mdns/"/>
+	<source-file src="src/android/com/wdc/plugins/mdnsdiscovery/mdns/DNSRecord.java" target-dir="src/com/wdc/plugins/mdnsdiscovery/mdns/"/>
+	<source-file src="src/android/com/wdc/plugins/mdnsdiscovery/mdns/MDNSDeviceItem.java" target-dir="src/com/wdc/plugins/mdnsdiscovery/mdns/"/>
+	<source-file src="src/android/com/wdc/plugins/mdnsdiscovery/mdns/MDNSFinder.java" target-dir="src/com/wdc/plugins/mdnsdiscovery/mdns/"/>
+	<source-file src="src/android/com/wdc/plugins/mdnsdiscovery/mdns/MDNSFinderService.java" target-dir="src/com/wdc/plugins/mdnsdiscovery/mdns/"/>
+	<source-file src="src/android/com/wdc/plugins/mdnsdiscovery/WDDeviceFinder.java" target-dir="src/com/wdc/plugins/mdnsdiscovery/"/>
+  </platform>
+<!-- 
+  <platform name="ios">
+    
+    <config-file target="config.xml" parent="/widget">
+      <feature name="BonjourDiscovery">
+        <param name="ios-package" value="BonjourDiscovery" />
+      </feature>
+    </config-file>
+
+    <header-file src="src/ios/BonjourDiscovery.h" target-dir="src"/>
+    <source-file src="src/ios/BonjourDiscovery.m" target-dir="src"/>
+  </platform>
+
+-->
+</plugin>
