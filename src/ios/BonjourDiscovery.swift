@@ -18,7 +18,7 @@ class BonjourDiscoveryBrowser:NSObject, NSNetServiceBrowserDelegate, NSNetServic
     var bonjourDeviceArray = [String]()
     
     override init() {
-        self.smbType = "_wd-2go._tcp." //"_wd-mycloud._tcp." //"_wd-2go._tcp." //"_smb._tcp."
+        self.smbType = "_wd-mycloud._tcp." //"_wd-2go._tcp." //"_smb._tcp."
         self.smbBrowser = NSNetServiceBrowser()
         self.serviceList = [NSNetService]()
         super.init()

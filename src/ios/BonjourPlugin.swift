@@ -14,6 +14,7 @@ import AVFoundation
     var bonjourBrowser:BonjourDiscoveryBrowser!
     var bonjourDeviceArray = [[String: String]]()
     var bonjourDiscoveryResult = [String: [[String: String]]]()
+    var jsCallback: CDVInvokedUrlCommand!
 
     override func pluginInitialize () {
         NSLog("BonjourDiscovery plugin Initialize")
@@ -37,26 +38,26 @@ import AVFoundation
         if NSJSONSerialization.isValidJSONObject(bonjourDiscoveryResult) { // True
             do {
                 let rawData = try NSJSONSerialization.dataWithJSONObject(bonjourDiscoveryResult, options: NSJSONWritingOptions(rawValue: 0))
-                let jsonString = NSString(data: rawData, encoding: NSUTF8StringEncoding)
+                let jsonString = String(data: rawData, encoding: NSUTF8StringEncoding) 
                 NSLog("Bonjour discovery result: \(jsonString)")
+                let pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAsString: jsonString)
+                commandDelegate!.sendPluginResult(pluginResult, callbackId:jsCallback.callbackId)
             } catch {
-                // Handle Error
+                let pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAsString: "")
+                commandDelegate!.sendPluginResult(pluginResult, callbackId:jsCallback.callbackId)
             }
         }
         
     }
-    /*
-    func startBrowsing(){
-        bonjourBrowser = BonjourDiscoveryBrowser()
-        bonjourBrowser.searchForOnboarding(onDeviceFound, onSearchFinished: onSearchFinished)
-    }
-    */
+
     func start_scan(command: CDVInvokedUrlCommand) {
+        jsCallback = command
         bonjourBrowser = BonjourDiscoveryBrowser()
         bonjourBrowser.searchForOnboarding(onDeviceFound, onSearchFinished: onSearchFinished)
     }
     
     func stop_scan(command: CDVInvokedUrlCommand) {
+        jsCallback = command
         if ((bonjourBrowser) != nil) {
             bonjourBrowser.stopSearchForOnboarding()
             bonjourBrowser = nil
